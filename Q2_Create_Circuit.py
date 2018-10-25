@@ -8,10 +8,18 @@ print(qubits)
 # prints 
 # [GridQubit(0, 0), GridQubit(0, 1), GridQubit(0, 2), GridQubit(1, 0), GridQubit(1, 1), GridQubit(1, 2), GridQubit(2, 0), GridQubit(2, 1), GridQubit(2, 2)]
 
-#print(criq.Circuit())
+#Creating a Hadamard Gate
 
 circuit = cirq.Circuit()
 circuit.append(cirq.H.on(q) for q in qubits if (q.row + q.col) % 2 == 0)
 circuit.append(cirq.X(q) for q in qubits if (q.row + q.col) % 2 == 1)
 print(circuit)
 # prints
+
+# Creating Moment
+
+for i, m in enumerate(circuit):
+    print('Moment {}: {}'.format(i, m))
+# prints 
+# Moment 0: H((0, 0)) and H((0, 2)) and H((1, 1)) and H((2, 0)) and H((2, 2))
+# Moment 1: X((0, 1)) and X((1, 0)) and X((1, 2)) and X((2, 1))
