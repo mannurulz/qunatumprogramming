@@ -31,20 +31,15 @@ circuit.append([cirq.X(q) for q in qubits if (q.row + q.col) % 2 == 1],
                strategy=cirq.InsertStrategy.EARLIEST)
 print("Printing Circuit with even & odd")
 print(circuit)
-# (0, 0): ───H───
-#
-# (0, 1): ───X───
-#
-# (0, 2): ───H───
-#
-# (1, 0): ───X───
-#
-# (1, 1): ───H───
-#
-# (1, 2): ───X───
-#
-# (2, 0): ───H───
-#
-# (2, 1): ───X───
-#
-# (2, 2): ───H───
+
+
+def rot_x_layer(length, half_turns):
+    """Yields X rotations by half_turns on a square grid of given length."""
+    rot = cirq.RotXGate(half_turns=half_turns)
+    for i in range(length):
+        for j in range(length):
+            yield rot(cirq.GridQubit(i, j))
+        
+circuit = cirq.Circuit()
+circuit.append(rot_x_layer(2, 0.1))
+print(circuit)
