@@ -23,3 +23,28 @@ for i, m in enumerate(circuit):
 # prints 
 # Moment 0: H((0, 0)) and H((0, 2)) and H((1, 1)) and H((2, 0)) and H((2, 2))
 # Moment 1: X((0, 1)) and X((1, 0)) and X((1, 2)) and X((2, 1))
+
+circuit = cirq.Circuit()
+circuit.append([cirq.H.on(q) for q in qubits if (q.row + q.col) % 2 == 0],
+               strategy=cirq.InsertStrategy.EARLIEST)
+circuit.append([cirq.X(q) for q in qubits if (q.row + q.col) % 2 == 1],
+               strategy=cirq.InsertStrategy.EARLIEST)
+print("Printing Circuit with even & odd")
+print(circuit)
+# (0, 0): ───H───
+#
+# (0, 1): ───X───
+#
+# (0, 2): ───H───
+#
+# (1, 0): ───X───
+#
+# (1, 1): ───H───
+#
+# (1, 2): ───X───
+#
+# (2, 0): ───H───
+#
+# (2, 1): ───X───
+#
+# (2, 2): ───H───
