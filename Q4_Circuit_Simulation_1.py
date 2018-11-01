@@ -25,3 +25,11 @@ simulator = XmonSimulator()
 result = simulator.run(circuit)
 
 print(result)
+
+
+import numpy as np
+circuit = Circuit()
+circuit.append(basic_circuit(False))    
+result = simulator.simulate(circuit, qubit_order=[q0, q1])
+
+print(np.around(result.final_state, 3))
