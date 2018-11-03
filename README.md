@@ -1,3 +1,3 @@
 # qunatumprogramming
-Test, Run, Learn - Quantum Programming \n
-Using Google Criq for learning
+Using Google Criq for Learning, Test, Run - Quantum Programming
+
