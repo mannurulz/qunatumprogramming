@@ -17,7 +17,7 @@ def basic_circuit(meas=True):
    
 circuit = Circuit()
 circuit.append(basic_circuit())
-print(circuit   )
+print(circuit)
 
 
 from cirq.google import XmonSimulator
