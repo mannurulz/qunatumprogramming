@@ -33,3 +33,14 @@ circuit.append(basic_circuit(False))
 result = simulator.simulate(circuit, qubit_order=[q0, q1])
 
 print(np.around(result.final_state, 3))
+
+# Qbit & Amplitude Ordering
+outside = [1, 10]
+inside = [1, 2]
+print(np.kron(outside, inside))
+
+i = 0
+for first in [0, 1]:
+    for second in [0, 1]:
+        print('amps[{}] is for first={}, second={}'.format(i, first, second))
+        i += 1
