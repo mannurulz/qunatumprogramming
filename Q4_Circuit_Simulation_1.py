@@ -44,3 +44,17 @@ for first in [0, 1]:
     for second in [0, 1]:
         print('amps[{}] is for first={}, second={}'.format(i, first, second))
         i += 1
+# Printing result as below:
+'''
+(0, 0): ───X^0.5───@───X^0.5───M('q0')───
+                   │
+(1, 0): ───X^0.5───@───X^0.5───M('q1')───
+q0=0
+q1=1
+[-0.5-0.j   0. -0.5j  0. -0.5j -0.5+0.j ]
+[ 1  2 10 20]
+amps[0] is for first=0, second=0
+amps[1] is for first=0, second=1
+amps[2] is for first=1, second=0
+amps[3] is for first=1, second=1
+'''
