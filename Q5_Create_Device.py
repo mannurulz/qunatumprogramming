@@ -31,3 +31,4 @@ class Xmon10Device(cirq.Device):
   def validate_schedule(self, schedule):
       for scheduled_operation in schedule.scheduled_operations:
           self.validate_scheduled_operation(schedule, scheduled_operation)
+print("Done")
